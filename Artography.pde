@@ -132,11 +132,15 @@ class Person {
   PVector velocity;
   Location target;
   boolean dead = false;
+  int r, g, b;
   Person(PVector l) {
     position = l.copy();
     target = ls.locations.get((int)random(ls.locations.size()));
     double velMultiplier = random(.005,.01);
     velocity = new PVector((float)((target.getLocX() - position.x)*velMultiplier), (float)((target.getLocY() - position.y)*velMultiplier));
+    r = target.r;
+    g = target.g;
+    b = target.b;
   }
   
   Person() {
@@ -146,7 +150,6 @@ class Person {
   Person(float x, float y) {
     this(new PVector(x, y));
   }
-  
 
   void run() {
     update();
@@ -165,7 +168,7 @@ class Person {
   // Method to display
   void display() {
     stroke(255);
-    fill(255);
+    fill(r, g, b);
     ellipse(position.x, position.y, 8, 8);
   }
 

@@ -221,6 +221,7 @@ class Location {
     noStroke();
     fill(r, g, b);
     rect(locX, locY, sizeX, sizeY);
-    text(name, locX, locY+sizeY+10);
+    textAlign(CENTER, CENTER);
+    text(name, locX+sizeX/2, locY+sizeY+10);
   }
 }

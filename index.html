@@ -15,15 +15,22 @@
             </header>
         </body>
         <hr>
+        <div id="tempContainer" style="display: none;"></div>
         <p>My first paragraph. This is a really long paragraph to test how long the paragraph can be before it switches over to a new line while still remaining in the paragraph and thus still being a part of the paragraph. This is hopefully long enough now.</p>
         <a id="dljson">Click to downlaod json (to be replaced with submit location button)</a>
         <img src="map.jpg" alt="This is a map." style="width:850px">
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
+    <script type="text/javascript">
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
         $('#dljson').click(function(){
-            $.getJSON("API LINK HERE", function(){
-                console.log("donwnloaded map json file")
+            console.log("clicked!");
+            lat = -41.319282; // to be replaced with 
+            lon = 174.818717; // form field info
+            const url = proxyurl + "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lon + "&radius=200&sensor=true&key=AIzaSyBU291kkcLu7fPWwATXzOtfkgJGFZN5128";
+            items = [];
+            $.getJSON(url, function(response, status, jqXHR){
+                $("<p>").text(jqXHR.responseText).appendTo("#tempContainer");   
             });
         });
     </script>

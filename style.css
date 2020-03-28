@@ -10,6 +10,11 @@ h1 {
     margin: 10px 0px;
 }
 
+a {
+    padding-right: 20px;
+    font-size: 20px;
+}
+
 aside {
     font-size: 20px;
 }

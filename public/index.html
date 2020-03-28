@@ -2,6 +2,7 @@
 <html>
     <title>Artography</title>
     <head>
+        <script src="processing.js"></script>
         <link rel = "stylesheet"
         type = "text/css"
         href = "style.css"/>
@@ -17,20 +18,33 @@
         <hr>
         <div id="tempContainer" style="display: none;"></div>
         <p>My first paragraph. This is a really long paragraph to test how long the paragraph can be before it switches over to a new line while still remaining in the paragraph and thus still being a part of the paragraph. This is hopefully long enough now.</p>
-        <a id="dljson">Click to downlaod json (to be replaced with submit location button)</a>
+        <form>
+            <label for="latin">Latitude:</label><br>
+            <input type="text" id="latin"><br><br>
+            <label for="lonin">Longitude:</label><br>
+            <input type="text" id="lonin"><br>
+            <input type="submit" id="dljson" value="Submit"><br>
+        </form>
         <img src="map.jpg" alt="This is a map." style="width:850px">
+        <canvas data-processing-sources="Artography.pde"></canvas>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var jsonData;
         $('#dljson').click(function(){
             console.log("clicked!");
-            lat = -41.319282; // to be replaced with 
-            lon = 174.818717; // form field info
+            lat = parseFloat($(latin).val()); // to be replaced with 
+            lon = parseFloat($(lonin).val()); // form field info
+            if (isNaN(lat) || isNaN(lon)){
+                alert("Invalid Input:\n\nPlease enter valid values for latitude and longitude.");
+                return;
+            }
             const url = proxyurl + "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lon + "&radius=200&sensor=true&key=AIzaSyBU291kkcLu7fPWwATXzOtfkgJGFZN5128";
             items = [];
             $.getJSON(url, function(response, status, jqXHR){
-                $("<p>", {"id": "json"}).text(jqXHR.responseText).appendTo("#tempContainer");   
+                jsonData = jqXHR.responseText;
+                //$("<p>", {"id": "json"}).text(jqXHR.responseText).appendTo("#tempContainer");   
             });
         });
     </script>

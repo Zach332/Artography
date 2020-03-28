@@ -167,7 +167,7 @@ class Person {
 
   // Method to display
   void display() {
-    stroke(255);
+    stroke(r, g, b);
     fill(r, g, b);
     ellipse(position.x, position.y, 8, 8);
   }

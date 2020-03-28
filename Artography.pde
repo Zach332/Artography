@@ -2,10 +2,10 @@ LocationSystem ls;
 final int MAX_BUILDING_SIZE = 50;
 final int MIN_BUILDING_SIZE = 30;
 final int INITIAL_PEOPLE = 200;
-double max_lat_dif = Double.MIN_VALUE;
-double min_lat = Double.MAX_VALUE;
-double max_lon_dif = Double.MIN_VALUE;
-double min_lon = Double.MAX_VALUE;
+double max_lat_dif = -1000000;
+double min_lat = 1000000;
+double max_lon_dif = -1000000;
+double min_lon = 1000000;
 
 final int BUILDING_SIZE_CONSTANT = 13000;
 
@@ -221,5 +221,6 @@ class Location {
     noStroke();
     fill(r, g, b);
     rect(locX, locY, sizeX, sizeY);
+    text(name, locX, locY+sizeY+10);
   }
 }

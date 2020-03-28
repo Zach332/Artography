@@ -12,7 +12,9 @@ final int BUILDING_SIZE_CONSTANT = 13000;
 void setup() {
   size(1400, 800);
   ls = new LocationSystem();
-  parseFile("json.json");
+}
+
+void initializeAll() {
   setGlobals();
   for(int i = 0; i < ls.locations.size(); i++) {
       Location l = ls.locations.get(i);
@@ -32,46 +34,6 @@ void setGlobals() {
 void addLocation(float lat, float lon, int xLen, int yLen, String name) {
   ls.addLocation(lat, lon, xLen, yLen, name);
 }
-
-
-void parseFile(String fileName) {
-  JSONArray places = loadJSONObject(fileName).getJSONArray("results"); //<>//
-  for (int i = 0; i < places.size(); i++) {
-    JSONObject place = places.getJSONObject(i);
-    if (validPlace(place)) {
-      JSONObject location = place.getJSONObject("geometry").getJSONObject("location");
-      JSONObject viewport = place.getJSONObject("geometry").getJSONObject("viewport");
-      ls.addLocation(
-        location.getFloat("lat"), 
-        location.getFloat("lng"), 
-        calculateWidth(viewport), 
-        calculateHeight(viewport), 
-        place.getString("name")
-      );
-    }
-  }
-}
-
-boolean validPlace(JSONObject place) {
-  JSONArray types = place.getJSONArray("types");
-  for (int i = 0; i < types.size(); i++) {
-    if (types.getString(i).equals("locality")) return false;
-    if (types.getString(i).equals("political")) return false;
-  }
-  return true;
-}
-
-int calculateWidth(JSONObject viewport) {
-  double northeast = viewport.getJSONObject("northeast").getFloat("lng");
-  double southwest = viewport.getJSONObject("southwest").getFloat("lng");
-  return (int)((northeast - southwest) * BUILDING_SIZE_CONSTANT);
-}  
-
-int calculateHeight(JSONObject viewport) {
-  double northeast = viewport.getJSONObject("northeast").getFloat("lat");
-  double southwest = viewport.getJSONObject("southwest").getFloat("lat");
-  return (int)((northeast - southwest) * BUILDING_SIZE_CONSTANT);
-}  
 
 void addPeople() {
   for(int i = 0; i < INITIAL_PEOPLE; i++) {

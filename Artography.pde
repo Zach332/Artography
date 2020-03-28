@@ -7,6 +7,8 @@ double min_lat = Double.MAX_VALUE;
 double max_lon_dif = Double.MIN_VALUE;
 double min_lon = Double.MAX_VALUE;
 
+final int BUILDING_SIZE_CONSTANT = 13000;
+
 void setup() {
   size(1400, 800);
   ls = new LocationSystem();
@@ -28,12 +30,19 @@ void setGlobals() {
 }
 
 void parseFile(String fileName) {
-  JSONArray places = loadJSONObject(fileName).getJSONArray("results");
+  JSONArray places = loadJSONObject(fileName).getJSONArray("results"); //<>//
   for (int i = 0; i < places.size(); i++) {
     JSONObject place = places.getJSONObject(i);
     if (validPlace(place)) {
       JSONObject location = place.getJSONObject("geometry").getJSONObject("location");
-      ls.addLocation(location.getFloat("lat"), location.getFloat("lng"));
+      JSONObject viewport = place.getJSONObject("geometry").getJSONObject("viewport");
+      ls.addLocation(
+        location.getFloat("lat"), 
+        location.getFloat("lng"), 
+        calculateWidth(viewport), 
+        calculateHeight(viewport), 
+        place.getString("name")
+      );
     }
   }
 }
@@ -46,6 +55,18 @@ boolean validPlace(JSONObject place) {
   }
   return true;
 }
+
+int calculateWidth(JSONObject viewport) {
+  double northeast = viewport.getJSONObject("northeast").getFloat("lng");
+  double southwest = viewport.getJSONObject("southwest").getFloat("lng");
+  return (int)((northeast - southwest) * BUILDING_SIZE_CONSTANT);
+}  
+
+int calculateHeight(JSONObject viewport) {
+  double northeast = viewport.getJSONObject("northeast").getFloat("lat");
+  double southwest = viewport.getJSONObject("southwest").getFloat("lat");
+  return (int)((northeast - southwest) * BUILDING_SIZE_CONSTANT);
+}  
 
 void addPeople() {
   for(int i = 0; i < INITIAL_PEOPLE; i++) {
@@ -85,8 +106,8 @@ class LocationSystem {
     people.add(new Person(x, y));
   }
   
-  void addLocation(double lat, double lon) {
-    locations.add(new Location(lat, lon));
+  void addLocation(double lat, double lon, int sizeX, int sizeY, String name) {
+    locations.add(new Location(lat, lon, sizeX, sizeY, name));
     if(lat<min_lat)min_lat = lat;
     if(lon<min_lon)min_lon = lon;
   }
@@ -155,6 +176,7 @@ class Person {
 }
 
 class Location {
+  String name;
   double lat;
   double lon;
   float locX;
@@ -162,11 +184,12 @@ class Location {
   int sizeX;
   int sizeY;
   int r, g, b;
-  public Location(double lat, double lon, int sizeX, int sizeY) {
+  public Location(double lat, double lon, int sizeX, int sizeY, String name) {
     this.lat = lat;
     this.lon = lon;
     this.sizeX = sizeX;
     this.sizeY = sizeY;
+    this.name = name;
     r = int(random(128,256));
     g = int(random(128,256));
     b = int(random(128,256));
@@ -185,10 +208,6 @@ class Location {
     return locY+sizeY/2;
   }
   
-  public Location(double lat, double lon) {
-    this(lat, lon, (int)random(MIN_BUILDING_SIZE, MAX_BUILDING_SIZE),(int)random(MIN_BUILDING_SIZE, MAX_BUILDING_SIZE));
-  }
-  
   void run() {
     display();
   }
@@ -204,4 +223,3 @@ class Location {
     rect(locX, locY, sizeX, sizeY);
   }
 }
-

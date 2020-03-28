@@ -26,7 +26,7 @@
             <input type="submit" id="dljson" value="Submit"><br>
         </form>
         <img src="map.jpg" alt="This is a map." style="width:850px">
-        <canvas data-processing-sources="Artography.pde"></canvas>
+        <canvas id="artography" data-processing-sources="Artography.pde"></canvas>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -46,6 +46,38 @@
                 jsonData = jqXHR.responseText;
                 //$("<p>", {"id": "json"}).text(jqXHR.responseText).appendTo("#tempContainer");   
             });
+            //processing code
+           var pjs = Processing.getInstanceById(artography);
+           var data = eval("("+jsonData+")");
+           if(data) {
+             for(p=0, end=data.places.length; p<end; p++) {
+               var place = data.places[p]
+               if(validPlace(place)) {
+                   var location = data.places[p].geometry.location;
+                   var viewport = data.places[p].geometry.viewport;
+                   pjs.addLocation(location.lat, location.lng, width(viewport), height(viewport), place.name);
+               }
+             }
+           }
         });
+        function validPlace(place) {
+            var types = place.types;
+              for (i = 0; i < types.length; i++) {
+                if (types[i]=="locality") return false;
+                if (types[i]=="political") return false;
+              }
+              return true;
+        }
+        function width(viewport) {
+            var northeast = viewport.northeast.lng;
+            var southwest = viewport.southwest.lng;
+            return ((northeast - southwest) * 13000);
+        }
+        function height(viewport) {
+            var northeast = viewport.northeast.lat;
+            var southwest = viewport.southwest.lat;
+            return ((northeast - southwest) * 13000);
+        }
     </script>
+
 </html>

@@ -25,6 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var jsonData;
         $('#dljson').click(function(){
             console.log("clicked!");
             lat = -41.319282; // to be replaced with 
@@ -32,7 +33,8 @@
             const url = proxyurl + "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lon + "&radius=200&sensor=true&key=AIzaSyBU291kkcLu7fPWwATXzOtfkgJGFZN5128";
             items = [];
             $.getJSON(url, function(response, status, jqXHR){
-                $("<p>", {"id": "json"}).text(jqXHR.responseText).appendTo("#tempContainer");   
+                jsonData = jqXHR.responseText;
+                //$("<p>", {"id": "json"}).text(jqXHR.responseText).appendTo("#tempContainer");   
             });
         });
     </script>

@@ -7,12 +7,10 @@ double min_lat = Double.MAX_VALUE;
 double max_lon_dif = Double.MIN_VALUE;
 double min_lon = Double.MAX_VALUE;
 
-final int BUILDING_SIZE_CONSTANT = 13000;
-
 void setup() {
   size(1400, 800);
   ls = new LocationSystem();
-  parseFile("json");
+  parseFile("json.json");
   setGlobals();
   for(int i = 0; i < ls.locations.size(); i++) {
       Location l = ls.locations.get(i);
@@ -30,13 +28,12 @@ void setGlobals() {
 }
 
 void parseFile(String fileName) {
-  JSONArray places = loadJSONObject(fileName).getJSONArray("results"); //<>//
+  JSONArray places = loadJSONObject(fileName).getJSONArray("results");
   for (int i = 0; i < places.size(); i++) {
     JSONObject place = places.getJSONObject(i);
     if (validPlace(place)) {
       JSONObject location = place.getJSONObject("geometry").getJSONObject("location");
-      JSONObject viewport = place.getJSONObject("geometry").getJSONObject("viewport");
-      ls.addLocation(location.getFloat("lat"), location.getFloat("lng"), calculateWidth(viewport), calculateHeight(viewport), place.getString("name"));
+      ls.addLocation(location.getFloat("lat"), location.getFloat("lng"));
     }
   }
 }
@@ -50,23 +47,12 @@ boolean validPlace(JSONObject place) {
   return true;
 }
 
-int calculateWidth(JSONObject viewport) {
-  double northeast = viewport.getJSONObject("northeast").getFloat("lng");
-  double southwest = viewport.getJSONObject("southwest").getFloat("lng");
-  return (int)((northeast - southwest) * BUILDING_SIZE_CONSTANT);
-}  
-
-int calculateHeight(JSONObject viewport) {
-  double northeast = viewport.getJSONObject("northeast").getFloat("lat");
-  double southwest = viewport.getJSONObject("southwest").getFloat("lat");
-  return (int)((northeast - southwest) * BUILDING_SIZE_CONSTANT);
-}  
-
 void addPeople() {
   for(int i = 0; i < INITIAL_PEOPLE; i++) {
     ls.addPerson();
   }
 }
+  
 
 void draw() {
   background(0);
@@ -95,11 +81,14 @@ class LocationSystem {
     people.add(new Person());
   }
   
-  void addLocation(double lat, double lon, int width, int height, String name) {
-    locations.add(new Location(lat, lon, width, height, name));
-  }
   void addPerson(float x, float y) {
     people.add(new Person(x, y));
+  }
+  
+  void addLocation(double lat, double lon) {
+    locations.add(new Location(lat, lon));
+    if(lat<min_lat)min_lat = lat;
+    if(lon<min_lon)min_lon = lon;
   }
 
   void run() {
@@ -116,8 +105,6 @@ class LocationSystem {
     }
   }
 }
-
-
 
 class Person {
   PVector position;
@@ -168,7 +155,6 @@ class Person {
 }
 
 class Location {
-  String name;
   double lat;
   double lon;
   float locX;
@@ -176,15 +162,11 @@ class Location {
   int sizeX;
   int sizeY;
   int r, g, b;
-  public Location(double lat, double lon, int sizeX, int sizeY, String name) {
+  public Location(double lat, double lon, int sizeX, int sizeY) {
     this.lat = lat;
     this.lon = lon;
     this.sizeX = sizeX;
     this.sizeY = sizeY;
-    this.name = name;
-    r = int(random(0,256));
-    g = int(random(0,256));
-    b = int(random(0,256));
     r = int(random(128,256));
     g = int(random(128,256));
     b = int(random(128,256));
@@ -203,8 +185,8 @@ class Location {
     return locY+sizeY/2;
   }
   
-  public Location(double lat, double lon, String name) {
-    this(lat, lon, (int)random(MIN_BUILDING_SIZE, MAX_BUILDING_SIZE),(int)random(MIN_BUILDING_SIZE, MAX_BUILDING_SIZE), name);
+  public Location(double lat, double lon) {
+    this(lat, lon, (int)random(MIN_BUILDING_SIZE, MAX_BUILDING_SIZE),(int)random(MIN_BUILDING_SIZE, MAX_BUILDING_SIZE));
   }
   
   void run() {
@@ -222,3 +204,4 @@ class Location {
     rect(locX, locY, sizeX, sizeY);
   }
 }
+

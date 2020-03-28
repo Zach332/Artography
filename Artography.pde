@@ -48,7 +48,7 @@ void draw() {
 }
 
 void mouseClicked() {
-  ls.addPerson(mouseX, mouseY);
+  if(ls.locations.size()>0)ls.addPerson(mouseX, mouseY);
 }
 
 
@@ -101,7 +101,7 @@ class Person {
   boolean dead = false;
   int r, g, b;
   Person(PVector l) {
-    position = l.copy();
+    position = l;
     target = ls.locations.get((int)random(ls.locations.size()));
     double velMultiplier = random(.005,.01);
     velocity = new PVector((float)((target.getLocX() - position.x)*velMultiplier), (float)((target.getLocY() - position.y)*velMultiplier));

@@ -2,17 +2,17 @@ LocationSystem ls;
 final int MAX_BUILDING_SIZE = 50;
 final int MIN_BUILDING_SIZE = 30;
 final int INITIAL_PEOPLE = 200;
-double max_lat_dif = Double.MIN_VALUE;
-double min_lat = Double.MAX_VALUE;
-double max_lon_dif = Double.MIN_VALUE;
-double min_lon = Double.MAX_VALUE;
+double max_lat_dif = -1000000;
+double min_lat = 1000000;
+double max_lon_dif = -1000000;
+double min_lon = 1000000;
 
 final int BUILDING_SIZE_CONSTANT = 13000;
 
 void setup() {
   size(1400, 800);
   ls = new LocationSystem();
-  parseFile("json");
+  parseFile("json.json");
   setGlobals();
   for(int i = 0; i < ls.locations.size(); i++) {
       Location l = ls.locations.get(i);
@@ -36,7 +36,13 @@ void parseFile(String fileName) {
     if (validPlace(place)) {
       JSONObject location = place.getJSONObject("geometry").getJSONObject("location");
       JSONObject viewport = place.getJSONObject("geometry").getJSONObject("viewport");
-      ls.addLocation(location.getFloat("lat"), location.getFloat("lng"), calculateWidth(viewport), calculateHeight(viewport), place.getString("name"));
+      ls.addLocation(
+        location.getFloat("lat"), 
+        location.getFloat("lng"), 
+        calculateWidth(viewport), 
+        calculateHeight(viewport), 
+        place.getString("name")
+      );
     }
   }
 }
@@ -67,6 +73,7 @@ void addPeople() {
     ls.addPerson();
   }
 }
+  
 
 void draw() {
   background(0);
@@ -95,11 +102,14 @@ class LocationSystem {
     people.add(new Person());
   }
   
-  void addLocation(double lat, double lon, int width, int height, String name) {
-    locations.add(new Location(lat, lon, width, height, name));
-  }
   void addPerson(float x, float y) {
     people.add(new Person(x, y));
+  }
+  
+  void addLocation(double lat, double lon, int sizeX, int sizeY, String name) {
+    locations.add(new Location(lat, lon, sizeX, sizeY, name));
+    if(lat<min_lat)min_lat = lat;
+    if(lon<min_lon)min_lon = lon;
   }
 
   void run() {
@@ -116,8 +126,6 @@ class LocationSystem {
     }
   }
 }
-
-
 
 class Person {
   PVector position;
@@ -182,9 +190,6 @@ class Location {
     this.sizeX = sizeX;
     this.sizeY = sizeY;
     this.name = name;
-    r = int(random(0,256));
-    g = int(random(0,256));
-    b = int(random(0,256));
     r = int(random(128,256));
     g = int(random(128,256));
     b = int(random(128,256));
@@ -203,10 +208,6 @@ class Location {
     return locY+sizeY/2;
   }
   
-  public Location(double lat, double lon, String name) {
-    this(lat, lon, (int)random(MIN_BUILDING_SIZE, MAX_BUILDING_SIZE),(int)random(MIN_BUILDING_SIZE, MAX_BUILDING_SIZE), name);
-  }
-  
   void run() {
     display();
   }
@@ -220,5 +221,7 @@ class Location {
     noStroke();
     fill(r, g, b);
     rect(locX, locY, sizeX, sizeY);
+    textAlign(CENTER, CENTER);
+    text(name, locX+sizeX/2, locY+sizeY+10);
   }
 }

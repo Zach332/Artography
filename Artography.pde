@@ -9,13 +9,27 @@ double min_lon = Double.MAX_VALUE;
 void setup() {
   size(1400, 800);
   ls = new LocationSystem();
-  parseFile();
+  parseFile("json");
 }
 
-void parseFile() {
-  ls.addLocation(-41.2864603, 174.776236);
-  ls.addLocation(-41.31894980000001, 174.8186717);
-  ls.addLocation(-41.3195339, 174.8171475);
+void parseFile(String fileName) {
+  JSONArray places = loadJSONObject(fileName).getJSONArray("results");
+  for (int i = 0; i < places.size(); i++) {
+    JSONObject place = places.getJSONObject(i);
+    if (validPlace(place)) {
+      JSONObject location = place.getJSONObject("geometry").getJSONObject("location");
+      ls.addLocation(location.getFloat("lat"), location.getFloat("lng"));
+    }
+  }
+}
+
+boolean validPlace(JSONObject place) {
+  JSONArray types = place.getJSONArray("types");
+  for (int i = 0; i < types.size(); i++) {
+    if (types.getString(i).equals("locality")) return false;
+    if (types.getString(i).equals("political")) return false;
+  }
+  return true;
 }
   
 

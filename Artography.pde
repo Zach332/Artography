@@ -12,7 +12,7 @@ final int BUILDING_SIZE_CONSTANT = 13000;
 void setup() {
   size(1400, 800);
   ls = new LocationSystem();
-  parseFile("json.json");
+  parseFile("json");
   setGlobals();
   for(int i = 0; i < ls.locations.size(); i++) {
       Location l = ls.locations.get(i);
@@ -97,14 +97,9 @@ class LocationSystem {
   
   void addLocation(double lat, double lon, int width, int height, String name) {
     locations.add(new Location(lat, lon, width, height, name));
+  }
   void addPerson(float x, float y) {
     people.add(new Person(x, y));
-  }
-  
-  void addLocation(double lat, double lon) {
-    locations.add(new Location(lat, lon));
-    if(lat<min_lat)min_lat = lat;
-    if(lon<min_lon)min_lon = lon;
   }
 
   void run() {

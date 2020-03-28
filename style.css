@@ -18,3 +18,7 @@ a {
 aside {
     font-size: 20px;
 }
+
+canvas {
+    max-width: 850px;
+}

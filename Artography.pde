@@ -29,6 +29,11 @@ void setGlobals() {
   }
 }
 
+void addLocation(float lat, float lon, int xLen, int yLen, String name) {
+  ls.addLocation(lat, lon, xLen, yLen, name);
+}
+
+
 void parseFile(String fileName) {
   JSONArray places = loadJSONObject(fileName).getJSONArray("results"); //<>//
   for (int i = 0; i < places.size(); i++) {

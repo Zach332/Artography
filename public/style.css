@@ -1,0 +1,20 @@
+body {
+    max-width: 850px;
+    margin: auto;
+    padding: 0 10px;
+    color: #444;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 10px 0px;
+}
+
+a {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+aside {
+    font-size: 20px;
+}

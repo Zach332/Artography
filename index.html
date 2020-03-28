@@ -13,6 +13,15 @@
         </header>
         <hr>
         <p>My first paragraph. This is a really long paragraph to test how long the paragraph can be before it switches over to a new line while still remaining in the paragraph and thus still being a part of the paragraph. This is hopefully long enough now.</p>
+        <a id="dljson">Click to downlaod json (to be replaced with submit location button)</a>
         <img src="map.jpg" alt="This is a map." style="width:850px">
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $('dljson').click(function(){
+            $.getJSON("API LINK HERE", function(){
+                console.log("donwnloaded map json file")
+            });
+        });
+    </script>
 </html> 

@@ -196,8 +196,8 @@ class Location {
   }
   
   void initialize() {
-    locY = (float)((lat-min_lat)/max_lat_dif)*(width-MAX_BUILDING_SIZE);
-    locX = (float)((lon-min_lon)/max_lon_dif)*(height-MAX_BUILDING_SIZE);
+    locX = (float)((lat-min_lat)/max_lat_dif)*(width-MAX_BUILDING_SIZE);
+    locY = (float)((lon-min_lon)/max_lon_dif)*(height-MAX_BUILDING_SIZE);
   }
   
   public float getLocX() {

@@ -191,7 +191,9 @@ class Location {
     noStroke();
     fill(r, g, b);
     rect(locX, locY, sizeX, sizeY);
-    textAlign(CENTER, CENTER);
-    text(name, locX+sizeX/2, locY+sizeY+10);
+    if(isInside(mouseX, mouseY)) {
+      textAlign(CENTER, CENTER);
+      text(name, locX+sizeX/2, locY+sizeY+10);
+    }
   }
 }

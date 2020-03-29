@@ -183,7 +183,7 @@ class Location {
   }
   
   boolean isInside(float x, float y) {
-    if(x<getLocX()+sizeX&&x>getLocX()-sizeX&&y<getLocY()+sizeY&&y>getLocY()-sizeY)return true;
+    if(x<getLocX()+sizeX/2&&x>getLocX()-sizeX/2&&y<getLocY()+sizeY/2&&y>getLocY()-sizeY/2)return true;
     return false;
   }
   

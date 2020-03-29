@@ -1,2 +1,2 @@
 # Artography
-[Visit the website](https://zach332.github.io/Artography/)
+[Visit the website](https://artography.web.app)

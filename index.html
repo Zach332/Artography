@@ -19,45 +19,56 @@
         <div id="tempContainer" style="display: none;"></div>
         <p>My first paragraph. This is a really long paragraph to test how long the paragraph can be before it switches over to a new line while still remaining in the paragraph and thus still being a part of the paragraph. This is hopefully long enough now.</p>
         <form>
-            <input type="text" id="latin" placeholder="Latitude"><br>
-            <input type="text" id="lonin" placeholder="Longitude"><br>
+            <label for="latin">Latitude:</label><br>
+            <input type="text" id="latin"><br><br>
+            <label for="lonin">Longitude:</label><br>
+            <input type="text" id="lonin"><br>
             <input type="submit" id="dljson" value="Submit"><br>
         </form>
         <canvas id="artography" data-processing-sources="Artography.pde"></canvas>
     </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="processing.js"></script>
     <script type="text/javascript">
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
         var jsonData;
-        $('#dljson').click(function(){
-            console.log("clicked!");
-            lat = parseFloat($(latin).val()); // to be replaced with 
-            lon = parseFloat($(lonin).val()); // form field info
-            if (isNaN(lat) || isNaN(lon)){
-                alert("Invalid Input:\n\nPlease enter valid values for latitude and longitude.");
-                return;
-            }
-            const url = proxyurl + "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lon + "&radius=200&sensor=true&key=AIzaSyBU291kkcLu7fPWwATXzOtfkgJGFZN5128";
-            items = [];
-            $.getJSON(url, function(response, status, jqXHR){
-                jsonData = jqXHR.responseText;
-                //$("<p>", {"id": "json"}).text(jqXHR.responseText).appendTo("#tempContainer");   
-            });
-            //processing code
-           var pjs = Processing.getInstanceById(artography);
-           var data = eval("("+jsonData+")");
+		var xhr = new XMLHttpRequest();
+  xhr.open("GET", "data.json");
+  xhr.addEventListener('load', processJSON);
+  xhr.send();
+
+  function processJSON(event) {
+    var json = this.responseText;
+    var data = JSON.parse(json);
+    // and do something with obj here
+	//processing code
+  var tId,cnt=0;
+  pjs = Processing.getInstanceById("artography");
+  console.log(cnt+':'+pjs);
+  if (!pjs) tId=setInterval(function() {
+    pjs = Processing.getInstanceById("artography");
+    console.log(cnt+':'+pjs);
+    if (pjs) {
+	clearInterval(tId);
+	//var pjs = Processing.getInstanceById('artography');
+		   console.log("pjs is "+pjs+ " and parsing"+data);
            if(data) {
-             for(p=0, end=data.places.length; p<end; p++) {
-               var place = data.places[p]
+             for(p=0, end=data.results.length; p<end; p++) {
+               var place = data.results[p];
                if(validPlace(place)) {
-                   var location = data.places[p].geometry.location;
-                   var viewport = data.places[p].geometry.viewport;
+                   var location = data.results[p].geometry.location;
+                   var viewport = data.results[p].geometry.viewport;
                    pjs.addLocation(location.lat, location.lng, width(viewport), height(viewport), place.name);
+				   //document.write((location.lat+ " " +location.lng+ " " +width(viewport)+ " " +height(viewport)+ " " + place.name));
                }
              }
              pjs.initializeAll();
            }
-        });
+	
+	}
+  },500);
+           
+  }
+            
+        
         function validPlace(place) {
             var types = place.types;
               for (i = 0; i < types.length; i++) {

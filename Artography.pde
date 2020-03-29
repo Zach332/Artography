@@ -36,8 +36,8 @@ void initializeAll() {
 void setGlobals() {
   for(int i = 0; i < ls.locations.size(); i++) {
     Location l = ls.locations.get(i);
-    if(l.lat-min_lat>max_lat_dif)max_lat_dif = l.lat-min_lat;
-    if(l.lon-min_lon>max_lon_dif)max_lon_dif = l.lon-min_lon;
+    if (l.lat-min_lat > max_lat_dif) max_lat_dif = l.lat-min_lat;
+    if (l.lon-min_lon > max_lon_dif) max_lon_dif = l.lon-min_lon;
   }
 }
 
@@ -196,8 +196,8 @@ class Location {
   }
   
   void initialize() {
-    locX = (float)((lat-min_lat)/max_lat_dif)*(width-MAX_BUILDING_SIZE);
-    locY = (float)((lon-min_lon)/max_lon_dif)*(height-MAX_BUILDING_SIZE);
+    locX = (float)((lon - min_lon) / max_lon_dif) * (width - MAX_BUILDING_SIZE);
+	locY = (float)(((lat - min_lat) * -1) / max_lat_dif) * (height - MAX_BUILDING_SIZE) + (height - MAX_BUILDING_SIZE);
   }
   
   public float getLocX() {

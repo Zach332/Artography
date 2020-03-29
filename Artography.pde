@@ -10,7 +10,7 @@ double min_lon = 1000000;
 final int BUILDING_SIZE_CONSTANT = 13000;
 
 void setup() {
-  size(1400, 800);
+  size(850, 600);
   ls = new LocationSystem();
 }
 

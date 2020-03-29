@@ -16,7 +16,6 @@
             </header>
         </body>
         <hr>
-        <div id="tempContainer" style="display: none;"></div>
         <p>My first paragraph. This is a really long paragraph to test how long the paragraph can be before it switches over to a new line while still remaining in the paragraph and thus still being a part of the paragraph. This is hopefully long enough now.</p>
         <form>
             <label for="latin">Latitude:</label><br>
@@ -27,66 +26,8 @@
         </form>
         <canvas id="artography" data-processing-sources="Artography.pde"></canvas>
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="processing.js"></script>
-    <script type="text/javascript">
-        var jsonData;
-		var xhr = new XMLHttpRequest();
-  xhr.open("GET", "data.json");
-  xhr.addEventListener('load', processJSON);
-  xhr.send();
-
-  function processJSON(event) {
-    var json = this.responseText;
-    var data = JSON.parse(json);
-    // and do something with obj here
-	//processing code
-  var tId,cnt=0;
-  pjs = Processing.getInstanceById("artography");
-  console.log(cnt+':'+pjs);
-  if (!pjs) tId=setInterval(function() {
-    pjs = Processing.getInstanceById("artography");
-    console.log(cnt+':'+pjs);
-    if (pjs) {
-	clearInterval(tId);
-	//var pjs = Processing.getInstanceById('artography');
-		   console.log("pjs is "+pjs+ " and parsing"+data);
-           if(data) {
-             for(p=0, end=data.results.length; p<end; p++) {
-               var place = data.results[p];
-               if(validPlace(place)) {
-                   var location = data.results[p].geometry.location;
-                   var viewport = data.results[p].geometry.viewport;
-                   pjs.addLocation(location.lat, location.lng, width(viewport), height(viewport), place.name);
-				   //document.write((location.lat+ " " +location.lng+ " " +width(viewport)+ " " +height(viewport)+ " " + place.name));
-               }
-             }
-             pjs.initializeAll();
-           }
-	
-	}
-  },500);
-           
-  }
-            
-        
-        function validPlace(place) {
-            var types = place.types;
-              for (i = 0; i < types.length; i++) {
-                if (types[i]=="locality") return false;
-                if (types[i]=="political") return false;
-              }
-              return true;
-        }
-        function width(viewport) {
-            var northeast = viewport.northeast.lng;
-            var southwest = viewport.southwest.lng;
-            return ((northeast - southwest) * 13000);
-        }
-        function height(viewport) {
-            var northeast = viewport.northeast.lat;
-            var southwest = viewport.southwest.lat;
-            return ((northeast - southwest) * 13000);
-        }
-    </script>
+    <script type="text/javascript" src="index.js"></script>
 
 </html>

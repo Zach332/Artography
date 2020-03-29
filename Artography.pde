@@ -12,6 +12,7 @@ final int BUILDING_SIZE_CONSTANT = 13000;
 void setup() {
   size(850, 600);
   ls = new LocationSystem();
+  background(0);
 }
 
 void initializeAll() {
@@ -43,7 +44,6 @@ void addPeople() {
   
 
 void draw() {
-  background(0);
   ls.run();
 }
 
@@ -81,6 +81,10 @@ class LocationSystem {
 
   void run() {
     for(int i = 0; i < locations.size(); i++) {
+      Location l = locations.get(i);
+      l.eraseAllUnneededText();
+    }
+	for(int i = 0; i < locations.size(); i++) {
       Location l = locations.get(i);
       l.run();
     }
@@ -125,7 +129,10 @@ class Person {
 
   // Method to update position
   void update() {
-    position.add(velocity);
+	stroke(0, 0, 0);
+	fill(0, 0, 0);
+	ellipse(position.x, position.y, 8, 8);
+	position.add(velocity);
     if(target.isInside(position.x, position.y)) {
       dead = true;
       ls.addPerson(position.x, position.y);
@@ -134,8 +141,8 @@ class Person {
 
   // Method to display
   void display() {
-    stroke(r, g, b);
-    fill(r, g, b);
+	stroke(r, g, b);
+	fill(r, g, b);
     ellipse(position.x, position.y, 8, 8);
   }
 
@@ -187,13 +194,20 @@ class Location {
     return false;
   }
   
+  void eraseAllUnneededText() {
+	  if(!isInside(mouseX, mouseY)) {
+		  fill(0, 0, 0);
+		  text(name, locX+sizeX/2, locY+sizeY+10);
+		}
+	}
+  
   void display() {
     noStroke();
-    fill(r, g, b);
+	fill(r, g, b);
     rect(locX, locY, sizeX, sizeY);
-    if(isInside(mouseX, mouseY)) {
-      textAlign(CENTER, CENTER);
-      text(name, locX+sizeX/2, locY+sizeY+10);
-    }
+	if(isInside(mouseX, mouseY)) {
+		  textAlign(CENTER, CENTER);
+		  text(name, locX+sizeX/2, locY+sizeY+10);
+	}
   }
 }

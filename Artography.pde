@@ -103,7 +103,7 @@ class Person {
   Person(PVector l) {
     position = l;
     target = ls.locations.get((int)random(ls.locations.size()));
-    double velMultiplier = random(.02,.04)/dist(position.x, position.y, target.getLocX(), target.getLocY();
+    double velMultiplier = random(.02,.04)/dist(position.x, position.y, target.getLocX(), target.getLocY());
     velocity = new PVector((float)((target.getLocX() - position.x)*velMultiplier), (float)((target.getLocY() - position.y)*velMultiplier));
     r = target.r;
     g = target.g;

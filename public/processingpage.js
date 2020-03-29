@@ -18,17 +18,17 @@ $(document).ready(function(){
 });
 
 function processJSON(jsonText) {
-console.log(jsonText);
+//console.log(jsonText);
 //var json = this.responseText;
 var data = JSON.parse(jsonText);
 // and do something with obj here
 //processing code
 var tId,cnt=0;
 pjs = Processing.getInstanceById("artography");
-console.log(cnt+':'+pjs);
-if (!pjs) tId=setInterval(function() {
+console.log("first:"+cnt+':'+pjs);
+tId=setInterval(function() {
 pjs = Processing.getInstanceById("artography");
-console.log(cnt+':'+pjs);
+console.log("second"+cnt+':'+pjs);
 if (pjs) {
 clearInterval(tId);
 //var pjs = Processing.getInstanceById('artography');
@@ -39,6 +39,7 @@ clearInterval(tId);
             if(validPlace(place)) {
                 var location = data.results[p].geometry.location;
                 var viewport = data.results[p].geometry.viewport;
+                console.log("add location" + location.lat + " " + location.lng + " " + place.name);
                 pjs.addLocation(location.lat, location.lng, width(viewport), height(viewport), place.name);
                 //document.write((location.lat+ " " +location.lng+ " " +width(viewport)+ " " +height(viewport)+ " " + place.name));
             }

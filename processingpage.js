@@ -18,6 +18,7 @@ $(document).ready(function(){
 });
 
 function processJSON(jsonText) {
+console.log(jsonText);
 //var json = this.responseText;
 var data = JSON.parse(jsonText);
 // and do something with obj here

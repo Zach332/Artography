@@ -103,6 +103,7 @@ class Person {
   PVector velocity;
   Location target;
   boolean dead = false;
+  float slowdown = 5;
   int r, g, b;
   Person(PVector l) {
     position = l;
@@ -132,11 +133,24 @@ class Person {
 	stroke(0, 0, 0);
 	fill(0, 0, 0);
 	ellipse(position.x, position.y, 8, 8);
-	position.add(velocity);
-    if(target.isInside(position.x, position.y)) {
-      dead = true;
-      ls.addPerson(position.x, position.y);
-    }
+	if(slowdown<0) {
+		if(slowdown<-5) {
+			dead = true;
+			ls.addPerson(position.x, position.y);
+		}
+		position.add(new PVector(velocity/(-1*slowdown/2), velocity/(-1*slowdown/2)));
+		slowdown-=.5;
+	} else {
+		if(target.isInside(position.x, position.y)) {
+		  slowdown = -1;
+		}
+		if(slowdown==0) {
+			position.add(velocity);
+		} else {
+			position.add(new PVector(velocity/(slowdown/2), velocity/(slowdown/2)));
+			slowdown-=.5;
+		}
+	}
   }
 
   // Method to display

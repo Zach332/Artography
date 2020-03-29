@@ -24,7 +24,7 @@ void initializeAll() {
   for(int i = ls.locations.size()-1; i >= 0; i--) {
       Location l = ls.locations.get(i);
       for(int j = 0; j < ls.locations.size(); j++) {
-		if(ls.locations.get(j).isInside(l.getLocX, l.getLocY)) {
+		if(ls.locations.get(j).isInside(l.getLocX+l.sizeX/2, l.getLocY+l.sizeY/2)) {
 			ls.remove(i);
 			break;
 		}

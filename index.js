@@ -9,4 +9,5 @@ $('#dljson').click(function(){
     }
     //slap into parameters
     window.location.replace("map.html?lat=" + lat + "?lon=" + lon);
+    return false;
 });

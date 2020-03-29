@@ -1,0 +1,565 @@
+{
+   "results" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.2864603,
+               "lng" : 174.776236
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.126285,
+                  "lng" : 174.9106252
+               },
+               "southwest" : {
+                  "lat" : -41.3624551,
+                  "lng" : 174.613084
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+         "id" : "df10863443be761329dcd5046c3a8fca0bf4fc56",
+         "name" : "Wellington",
+         "photos" : [
+            {
+               "height" : 500,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104949121987198987785\"\u003eVladimir Iliev\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA9x-I6bBUlHS0mKhWrDwPwxMDty25_MoC7wI8eliYczcF_80kX0V00aPdKKDP1fDo6tDK7fLXvvvXWZl80sIFiscwGjyoKK4iCiUn4P21OMabs_oWzkmTIX7Rs6SxASxtEhABB-YxU05GyxkuHMPL74nAGhQTFFSpy7ycXuqMfMiu9K4l-UuMxg",
+               "width" : 752
+            }
+         ],
+         "place_id" : "ChIJy3TpSfyxOG0RcLQTomPvAAo",
+         "reference" : "ChIJy3TpSfyxOG0RcLQTomPvAAo",
+         "scope" : "GOOGLE",
+         "types" : [ "locality", "political" ],
+         "vicinity" : "Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.31894980000001,
+               "lng" : 174.8186717
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.31761316970849,
+                  "lng" : 174.8198465302915
+               },
+               "southwest" : {
+                  "lat" : -41.32031113029149,
+                  "lng" : 174.8171485697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "324e84d21a92069d7998b2870fbebf899d6a6012",
+         "name" : "Embrace",
+         "place_id" : "ChIJKT1VOXmvOG0RB-Q_BDuSHIQ",
+         "plus_code" : {
+            "compound_code" : "MRJ9+CF Wellington, New Zealand",
+            "global_code" : "4VCPMRJ9+CF"
+         },
+         "reference" : "ChIJKT1VOXmvOG0RB-Q_BDuSHIQ",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "vicinity" : "40 Argentine Avenue, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3195339,
+               "lng" : 174.8171475
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3181965697085,
+                  "lng" : 174.8183347802915
+               },
+               "southwest" : {
+                  "lat" : -41.3208945302915,
+                  "lng" : 174.8156368197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "b7686a5bbf82151bbdf54ec540cd6d18d20bc769",
+         "name" : "10k",
+         "place_id" : "ChIJWQMl0nivOG0Rr76_nqeVJuI",
+         "plus_code" : {
+            "compound_code" : "MRJ8+5V Miramar, Wellington, New Zealand",
+            "global_code" : "4VCPMRJ8+5V"
+         },
+         "reference" : "ChIJWQMl0nivOG0Rr76_nqeVJuI",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "vicinity" : "30 Aparima Avenue, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3194405,
+               "lng" : 174.8203873
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3181055197085,
+                  "lng" : 174.8216389302915
+               },
+               "southwest" : {
+                  "lat" : -41.3208034802915,
+                  "lng" : 174.8189409697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "28a7fae1abb73c4474b18f397d74cd62ad699f48",
+         "name" : "Girls Brigade",
+         "place_id" : "ChIJQxgT_XuvOG0RUfnMJHhtdhc",
+         "plus_code" : {
+            "compound_code" : "MRJC+65 Wellington, New Zealand",
+            "global_code" : "4VCPMRJC+65"
+         },
+         "reference" : "ChIJQxgT_XuvOG0RUfnMJHhtdhc",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "vicinity" : "72 Ira Street, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3180355,
+               "lng" : 174.8173818
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.31673181970849,
+                  "lng" : 174.8187619802915
+               },
+               "southwest" : {
+                  "lat" : -41.31942978029149,
+                  "lng" : 174.8160640197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/school-71.png",
+         "id" : "9991fd1303f5476af38cbf0ec732c99f34421c8d",
+         "name" : "Wellington Ballet Studio",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 1282,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/109586720516427726512\"\u003eWellington Ballet Studio\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAMvyc1fGLDAu9Y6vBkm-ypcq9MACu1Nt48GrkEJg-3E6QHApim0z-DGvfsx3UsMbyLCpVLzi9_Vk_H_T7-BI4z0FCIHGX7QM7VeZGrEn47CLcGzt5NWggoyoT4Ky54TNIEhBiBpeP95iRwtFOkW0JhD1HGhTQkoCgoEQXQ5OMt_l3HyRl7bHnBg",
+               "width" : 3714
+            }
+         ],
+         "place_id" : "ChIJ2SOzpE6wOG0R5uazzB7LYq4",
+         "plus_code" : {
+            "compound_code" : "MRJ8+QX Miramar, Wellington, New Zealand",
+            "global_code" : "4VCPMRJ8+QX"
+         },
+         "rating" : 5,
+         "reference" : "ChIJ2SOzpE6wOG0R5uazzB7LYq4",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1,
+         "vicinity" : "27 Chelsea Street, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3180242,
+               "lng" : 174.8173327
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3167325197085,
+                  "lng" : 174.8187210802915
+               },
+               "southwest" : {
+                  "lat" : -41.3194304802915,
+                  "lng" : 174.8160231197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "b1eb30a615f116875bbf26984e988382f1c72b03",
+         "name" : "Motu Kairangi Te Kohanga Reo",
+         "place_id" : "ChIJ8ca25HivOG0RckgaITDpG6E",
+         "plus_code" : {
+            "compound_code" : "MRJ8+QW Wellington, New Zealand",
+            "global_code" : "4VCPMRJ8+QW"
+         },
+         "reference" : "ChIJ8ca25HivOG0RckgaITDpG6E",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "vicinity" : "27 Chelsea Street, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.31815940000001,
+               "lng" : 174.8203477
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3167572697085,
+                  "lng" : 174.8217396302915
+               },
+               "southwest" : {
+                  "lat" : -41.3194552302915,
+                  "lng" : 174.8190416697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "0a4e32a37cd762605ab7207812e5358502d9a122",
+         "name" : "Garage hair Studio",
+         "place_id" : "ChIJ3zET2HuvOG0RGIiuJjP4QTY",
+         "plus_code" : {
+            "compound_code" : "MRJC+P4 Miramar, Wellington, New Zealand",
+            "global_code" : "4VCPMRJC+P4"
+         },
+         "rating" : 5,
+         "reference" : "ChIJ3zET2HuvOG0RGIiuJjP4QTY",
+         "scope" : "GOOGLE",
+         "types" : [ "hair_care", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2,
+         "vicinity" : "124a Miramar Avenue, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3197854,
+               "lng" : 174.8180735
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3184240197085,
+                  "lng" : 174.8195968802915
+               },
+               "southwest" : {
+                  "lat" : -41.3211219802915,
+                  "lng" : 174.8168989197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "3fe469d0d539c5483bad8dcbff9d224b9476b14a",
+         "name" : "Callinicos J Mr",
+         "place_id" : "ChIJxXe-LHmvOG0Re2DFKvzcGSY",
+         "plus_code" : {
+            "compound_code" : "MRJ9+36 Wellington, New Zealand",
+            "global_code" : "4VCPMRJ9+36"
+         },
+         "reference" : "ChIJxXe-LHmvOG0Re2DFKvzcGSY",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "vicinity" : "27 Argentine Avenue, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3187476,
+               "lng" : 174.818054
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3173908697085,
+                  "lng" : 174.8195226302915
+               },
+               "southwest" : {
+                  "lat" : -41.3200888302915,
+                  "lng" : 174.8168246697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "ca735f17d7d04e8b96a383ec092ca25174896b46",
+         "name" : "Frood A",
+         "place_id" : "ChIJbXQyInmvOG0RPvRAwt8OHVc",
+         "plus_code" : {
+            "compound_code" : "MRJ9+G6 Wellington, New Zealand",
+            "global_code" : "4VCPMRJ9+G6"
+         },
+         "reference" : "ChIJbXQyInmvOG0RPvRAwt8OHVc",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "vicinity" : "51 Argentine Avenue, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3195924,
+               "lng" : 174.8204514
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3182591697085,
+                  "lng" : 174.8216907802915
+               },
+               "southwest" : {
+                  "lat" : -41.3209571302915,
+                  "lng" : 174.8189928197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "117a82651d4c4fd6bc838194e33234984dc93028",
+         "name" : "Tawhiri Indigenous Architects",
+         "place_id" : "ChIJLZ7M_XuvOG0RHwF6iKRp_K4",
+         "plus_code" : {
+            "compound_code" : "MRJC+55 Wellington, New Zealand",
+            "global_code" : "4VCPMRJC+55"
+         },
+         "reference" : "ChIJLZ7M_XuvOG0RHwF6iKRp_K4",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "vicinity" : "70 Ira Street, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3181216,
+               "lng" : 174.8198828
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3167713197085,
+                  "lng" : 174.8212406802915
+               },
+               "southwest" : {
+                  "lat" : -41.3194692802915,
+                  "lng" : 174.8185427197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "8b64b622df4b6104bf0d3a2085674004cae0ec43",
+         "name" : "Ira Street at Miramar Avenue",
+         "place_id" : "ChIJ_10kZHmvOG0RP4gMj47qmhA",
+         "plus_code" : {
+            "compound_code" : "MRJ9+QX Wellington, New Zealand",
+            "global_code" : "4VCPMRJ9+QX"
+         },
+         "reference" : "ChIJ_10kZHmvOG0RP4gMj47qmhA",
+         "scope" : "GOOGLE",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "vicinity" : "New Zealand"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3180176,
+               "lng" : 174.8197174
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.31666131970849,
+                  "lng" : 174.8211172302915
+               },
+               "southwest" : {
+                  "lat" : -41.31935928029149,
+                  "lng" : 174.8184192697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "26bc35d00860e50253890b755dc6d4a1662fb8e3",
+         "name" : "Ira Street at Miramar Avenue (near 95)",
+         "place_id" : "ChIJFwfDZXmvOG0RZzFCVhakrS8",
+         "plus_code" : {
+            "compound_code" : "MRJ9+QV Wellington, New Zealand",
+            "global_code" : "4VCPMRJ9+QV"
+         },
+         "reference" : "ChIJFwfDZXmvOG0RZzFCVhakrS8",
+         "scope" : "GOOGLE",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "vicinity" : "New Zealand"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.317971,
+               "lng" : 174.817296
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3167059197085,
+                  "lng" : 174.8187027302915
+               },
+               "southwest" : {
+                  "lat" : -41.3194038802915,
+                  "lng" : 174.8160047697085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "180e9aa25f85edd2d569aa98bfd16f15a671ec94",
+         "name" : "Wellington Art Club",
+         "opening_hours" : {
+            "open_now" : false
+         },
+         "photos" : [
+            {
+               "height" : 2268,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/117750746866040260130\"\u003eLucille Cash\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAagpjWV3I94Six9VFa5eI375WV-C_qgqhtKLm9TCrXGnir0rJySSZay86HalA-zo0LuNaUQHl7F9Bmtv1kWavaY4e3ULIfaX2Q5dMAyKOhEYhgYswHZ7aUu3IL9L9nZoFEhCG0mb2yFLoLlzZQJ4XEXhsGhRWYrkeahNyTa37EpPdV6UsPhUnFQ",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJZca25HivOG0R1oJ3bJqn7-I",
+         "plus_code" : {
+            "compound_code" : "MRJ8+RW Miramar, Wellington, New Zealand",
+            "global_code" : "4VCPMRJ8+RW"
+         },
+         "rating" : 4.8,
+         "reference" : "ChIJZca25HivOG0R1oJ3bJqn7-I",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "user_ratings_total" : 4,
+         "vicinity" : "27 Chelsea Street, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3179708,
+               "lng" : 174.8172958
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3167058197085,
+                  "lng" : 174.8187025802915
+               },
+               "southwest" : {
+                  "lat" : -41.31940378029149,
+                  "lng" : 174.8160046197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "7c9e0727248bc5b02f9b384b753903dce64fe864",
+         "name" : "Miramar Christian School",
+         "place_id" : "ChIJ8ca25HivOG0RSjs2kovB3G8",
+         "plus_code" : {
+            "compound_code" : "MRJ8+RW Wellington, New Zealand",
+            "global_code" : "4VCPMRJ8+RW"
+         },
+         "reference" : "ChIJ8ca25HivOG0RSjs2kovB3G8",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "vicinity" : "27 Chelsea Street, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3179708,
+               "lng" : 174.8172958
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.3167058197085,
+                  "lng" : 174.8187025802915
+               },
+               "southwest" : {
+                  "lat" : -41.31940378029149,
+                  "lng" : 174.8160046197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "7d1cdb70cb1345bbc416d24e6948c0df5a4ec45e",
+         "name" : "Te Ora Hou Aotearoa",
+         "place_id" : "ChIJ8ca25HivOG0RApgfZDKsjPM",
+         "plus_code" : {
+            "compound_code" : "MRJ8+RW Wellington, New Zealand",
+            "global_code" : "4VCPMRJ8+RW"
+         },
+         "reference" : "ChIJ8ca25HivOG0RApgfZDKsjPM",
+         "scope" : "GOOGLE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "vicinity" : "27 Chelsea Street, Miramar, Wellington"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.3177848,
+               "lng" : 174.8171972
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.31643776970849,
+                  "lng" : 174.8184546802915
+               },
+               "southwest" : {
+                  "lat" : -41.31913573029149,
+                  "lng" : 174.8157567197085
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+         "id" : "e18fd5f77ce4f583f6e33fd1c7d4942573c4ccad",
+         "name" : "Chelsea Street Play Area",
+         "photos" : [
+            {
+               "height" : 3480,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116403132113549109841\"\u003eMadeleine Ware\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAWA0mnLG6pjiLoGYb9VDQcQKpsVym1QFWQJJe6T7eNA455pRybPqNOMMiXNWKCFnx9fZENTws2k0wVAjQlXSlyY6IMI38eIyT_QKVn37vnVQQrMi71Yiq4Hbc4iB6r1ACEhALthbEZ7AvzF-EISweEAGgGhT5SY5c5sr93StbWXwr9XsqPt1LjA",
+               "width" : 4640
+            }
+         ],
+         "place_id" : "ChIJ4fWK-nivOG0Rsw1lkveQmxw",
+         "reference" : "ChIJ4fWK-nivOG0Rsw1lkveQmxw",
+         "scope" : "GOOGLE",
+         "types" : [ "park", "premise", "point_of_interest", "establishment" ],
+         "vicinity" : "Miramar"
+      },
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : -41.31688159999999,
+               "lng" : 174.8175657
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : -41.2999525,
+                  "lng" : 174.829541
+               },
+               "southwest" : {
+                  "lat" : -41.325896,
+                  "lng" : 174.8087474
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+         "id" : "e3c955c273a99a5767c84ba63e2e9e64dcf59595",
+         "name" : "Miramar",
+         "photos" : [
+            {
+               "height" : 2752,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/107475744812363654534\"\u003eTiago Molnar Leite Fernandes\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAUiJ4SVEw7h9Q_B1-mgF5IIL6V0hQh4ynYWI3XJZqy5Es-aZDigvL7XpPXrRU0_3LX5-bQdLTJ0SUGYSLrEsGdRwlhQ9TtmChHdORRpovCcCSdfI0UmoIuIA9yqOLSDkcEhDN_PDek6guiHkJx4rLGe8hGhR-d_4F5fYYFqwXye-RASqUmxd8Hw",
+               "width" : 4896
+            }
+         ],
+         "place_id" : "ChIJy__aPHivOG0R4OSiQ2HvAAU",
+         "reference" : "ChIJy__aPHivOG0R4OSiQ2HvAAU",
+         "scope" : "GOOGLE",
+         "types" : [ "sublocality_level_1", "sublocality", "political" ],
+         "vicinity" : "Miramar"
+      }
+   ],
+   "status" : "OK"
+}

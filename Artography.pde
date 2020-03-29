@@ -1,7 +1,7 @@
 LocationSystem ls;
 final int MAX_BUILDING_SIZE = 50;
 final int MIN_BUILDING_SIZE = 30;
-final int INITIAL_PEOPLE = 1;
+final int INITIAL_PEOPLE = 200;
 double max_lat_dif = -1000000;
 double min_lat = 1000000;
 double max_lon_dif = -1000000;
@@ -103,7 +103,7 @@ class Person {
   Person(PVector l) {
     position = l;
     target = ls.locations.get((int)random(ls.locations.size()));
-    double velMultiplier = random(.005,.01) * .05;
+    double velMultiplier = random(.005,.01);
     velocity = new PVector((float)((target.getLocX() - position.x)*velMultiplier), (float)((target.getLocY() - position.y)*velMultiplier));
     r = target.r;
     g = target.g;
@@ -198,5 +198,9 @@ class Location {
       textAlign(CENTER, CENTER);
       text(name, locX+sizeX/2, locY+sizeY+10);
  	}
+	else {
+	  fill(0, 0, 0);
+	  text(name, locX+sizeX/2, locY+sizeY+10);
+	}
   }
 }

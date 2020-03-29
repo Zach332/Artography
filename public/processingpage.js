@@ -6,28 +6,20 @@ function getUrlVars() {
     return vars;
 }
 
-
-
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 $(document).ready(function(){
     var lat = getUrlVars()["lat"];
     var lon = getUrlVars()["lon"];
-    if (typeof lat === 'undefined' && typeof lon === "undefined") window.location.replace("index.html");
+    if (typeof lat === 'undefined' || typeof lon === "undefined") window.location.replace("index.html");
     const url = proxyurl + "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lon + "&radius=200&sensor=true&key=AIzaSyBU291kkcLu7fPWwATXzOtfkgJGFZN5128";
     $.getJSON(url, function(response, status, jqXHR){
-        jsonData = jqXHR.responseText;
+        processJSON(jqXHR.responseText);
     });
 });
 
-var jsonData;
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "data.json");
-xhr.addEventListener('load', processJSON);
-xhr.send();
-
-function processJSON(event) {
-var json = this.responseText;
-var data = JSON.parse(json);
+function processJSON(jsonText) {
+//var json = this.responseText;
+var data = JSON.parse(jsonText);
 // and do something with obj here
 //processing code
 var tId,cnt=0;

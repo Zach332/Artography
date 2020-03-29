@@ -8,6 +8,6 @@ $('#dljson').click(function(){
         return;
     }
     //slap into parameters
-    window.location.replace("map.html?lat=" + lat + "?lon=" + lon);
+    window.location.replace("map.html?lat=" + lat + "&lon=" + lon);
     return false;
 });

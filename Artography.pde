@@ -82,6 +82,10 @@ class LocationSystem {
   void run() {
     for(int i = 0; i < locations.size(); i++) {
       Location l = locations.get(i);
+      l.eraseAllUnneededText();
+    }
+	for(int i = 0; i < locations.size(); i++) {
+      Location l = locations.get(i);
       l.run();
     }
     for (int i = people.size()-1; i >= 0; i--) {
@@ -190,17 +194,20 @@ class Location {
     return false;
   }
   
+  void eraseAllUnneededText() {
+	  if(!isInside(mouseX, mouseY)) {
+		  fill(0, 0, 0);
+		  text(name, locX+sizeX/2, locY+sizeY+10);
+		}
+	}
+  
   void display() {
     noStroke();
-    fill(r, g, b);
+	fill(r, g, b);
     rect(locX, locY, sizeX, sizeY);
-    if(isInside(mouseX, mouseY)) {
-      textAlign(CENTER, CENTER);
-      text(name, locX+sizeX/2, locY+sizeY+10);
- 	}
-	else {
-	  fill(0, 0, 0);
-	  text(name, locX+sizeX/2, locY+sizeY+10);
+	if(isInside(mouseX, mouseY)) {
+		  textAlign(CENTER, CENTER);
+		  text(name, locX+sizeX/2, locY+sizeY+10);
 	}
   }
 }

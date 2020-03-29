@@ -127,7 +127,7 @@ class Person {
   void update() {
 	stroke(0, 0, 0);
 	fill(0, 0, 0);
-	ellipse(position.x, position.y, 9, 9);
+	ellipse(position.x, position.y, 8, 8);
 	position.add(velocity);
     if(target.isInside(position.x, position.y)) {
       dead = true;

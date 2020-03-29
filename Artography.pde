@@ -1,7 +1,7 @@
 LocationSystem ls;
 final int MAX_BUILDING_SIZE = 50;
 final int MIN_BUILDING_SIZE = 30;
-final int INITIAL_PEOPLE = 200;
+final int INITIAL_PEOPLE = 1;
 double max_lat_dif = -1000000;
 double min_lat = 1000000;
 double max_lon_dif = -1000000;
@@ -12,6 +12,7 @@ final int BUILDING_SIZE_CONSTANT = 13000;
 void setup() {
   size(850, 600);
   ls = new LocationSystem();
+  background(0);
 }
 
 void initializeAll() {
@@ -43,7 +44,6 @@ void addPeople() {
   
 
 void draw() {
-  background(0);
   ls.run();
 }
 
@@ -103,7 +103,7 @@ class Person {
   Person(PVector l) {
     position = l;
     target = ls.locations.get((int)random(ls.locations.size()));
-    double velMultiplier = random(.005,.01);
+    double velMultiplier = random(.005,.01) * .05;
     velocity = new PVector((float)((target.getLocX() - position.x)*velMultiplier), (float)((target.getLocY() - position.y)*velMultiplier));
     r = target.r;
     g = target.g;
@@ -125,7 +125,10 @@ class Person {
 
   // Method to update position
   void update() {
-    position.add(velocity);
+	stroke(0, 0, 0);
+	fill(0, 0, 0);
+	ellipse(position.x, position.y, 9, 9);
+	position.add(velocity);
     if(target.isInside(position.x, position.y)) {
       dead = true;
       ls.addPerson(position.x, position.y);
@@ -134,8 +137,8 @@ class Person {
 
   // Method to display
   void display() {
-    stroke(r, g, b);
-    fill(r, g, b);
+	stroke(r, g, b);
+	fill(r, g, b);
     ellipse(position.x, position.y, 8, 8);
   }
 
@@ -194,6 +197,6 @@ class Location {
     if(isInside(mouseX, mouseY)) {
       textAlign(CENTER, CENTER);
       text(name, locX+sizeX/2, locY+sizeY+10);
-    }
+ 	}
   }
 }

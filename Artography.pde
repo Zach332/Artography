@@ -21,11 +21,12 @@ void initializeAll() {
       Location l = ls.locations.get(i);
       l.initialize();
   }
-  for(int i = ls.locations.size()-1; i >= 0; i--) {
+  for(int i = 0; i < ls.locations.size(); i++) {
       Location l = ls.locations.get(i);
       for(int j = 0; j < ls.locations.size(); j++) {
-		if(ls.locations.get(j).isInside(l.getLocX+l.sizeX/2, l.getLocY+l.sizeY/2)) {
-			ls.remove(i);
+		if(ls.locations.get(j).isInside(l.getLocX()+l.sizeX/2, l.getLocY()+l.sizeY/2)) {
+			ls.locations.remove(i);
+			i--;
 			break;
 		}
 	}

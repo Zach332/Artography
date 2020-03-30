@@ -6,6 +6,7 @@ double max_lat_dif = -1000000;
 double min_lat = 1000000;
 double max_lon_dif = -1000000;
 double min_lon = 1000000;
+boolean textDisplayed = false;
 
 final int BUILDING_SIZE_CONSTANT = 13000;
 
@@ -21,11 +22,12 @@ void initializeAll() {
       Location l = ls.locations.get(i);
       l.initialize();
   }
-  for(int i = ls.locations.size()-1; i >= 0; i--) {
+  for(int i = 0; i < ls.locations.size(); i++) {
       Location l = ls.locations.get(i);
       for(int j = 0; j < ls.locations.size(); j++) {
-		if(ls.locations.get(j).isInside(l.getLocX+l.sizeX/2, l.getLocY+l.sizeY/2)) {
-			ls.remove(i);
+		if(ls.locations.get(j).isInside(l.getLocX()+l.sizeX/2, l.getLocY()+l.sizeY/2)) {
+			ls.locations.remove(i);
+			i--;
 			break;
 		}
 	}
@@ -93,6 +95,7 @@ class LocationSystem {
       Location l = locations.get(i);
       l.eraseAllUnneededText();
     }
+    textDisplayed = false;
 	for(int i = 0; i < locations.size(); i++) {
       Location l = locations.get(i);
       l.run();
@@ -228,7 +231,13 @@ class Location {
     noStroke();
 	fill(r, g, b);
     rect(locX, locY, sizeX, sizeY);
-	if(isInside(mouseX, mouseY)) {
+    stroke(0,0,0);
+	line(locX,locY+sizeY, locX+sizeX/2,locY+sizeY/2);
+	line(locX+sizeX/2,locY+sizeY/2, locX+sizeX, locY+sizeY);
+	line(locX, locY+sizeY/2, locX+sizeX/2, locY);
+	line(locX+sizeX/2, locY, locX+sizeX, locY+sizeY/2);
+	if(!textDisplayed&&isInside(mouseX, mouseY)) {
+		  textDisplayed = true;
 		  textAlign(CENTER, CENTER);
 		  text(name, locX+sizeX/2, locY+sizeY+10);
 	}

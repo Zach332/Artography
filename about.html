@@ -2,21 +2,24 @@
 <html>
     <title>Artography</title>
     <head>
-        <link rel = "stylesheet"
-        type = "text/css"
-        href = "style.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-indigo.min.css" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link rel = "stylesheet" type = "text/css" href = "style.css" />
     </head>
     <body>
-        <body>
-            <header>
+        <div class="mdl-card mdl-shadow--4dp" style="background-color: #455A64; margin: auto; width: 70%; color: black;">
+            <header style="padding: 20px;">
                 <h1>Artography</h1>
-                <a href="index.html">Home</a>
-                <a href="about.html">How it Works</a>
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="index.html">Home</a>
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="about.html">Locations</a>
             </header>
-        </body>
-        <hr>
-		<a href="map.html?lat=38.035644&lon=-78.503373">Charlottesville, VA</a>
-		<a href="map.html?lat=38.889737&lon=-77.009058">Washington, DC</a>
-		<a href="map.html?lat=40.709443&lon=-74.009868">New York, NY</a>
+            <hr>
+            <ul class="mdl-list" style="margin: 0 auto; padding-bottom: 30px;">
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="map.html?lat=38.035644&lon=-78.503373">Charlottesville, VA</a>
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="map.html?lat=38.889737&lon=-77.009058">Washington, DC</a>
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="map.html?lat=40.709443&lon=-74.009868">New York, NY</a>
+            </ul>
+        </div>
     </body>
 </html>

@@ -3,7 +3,8 @@ body {
     margin: auto;
     padding: 0 10px;
     color: #444;
-    background-color: black;
+    background-color: #2D2D2D;
+    font-family: 'Roboto', sans-serif;
 }
 
 h1 {

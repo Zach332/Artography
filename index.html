@@ -2,35 +2,36 @@
 <html>
     <title>Artography</title>
     <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-indigo.min.css" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
         <link rel = "stylesheet" type = "text/css" href = "style.css" />
     </head>
     <body>
-        <div class="mdl-card" style="background-color: #455A64;">
-            <body>
-                <header>
-                    <h1>Artography</h1>
-                    <a href="index.html">Home</a>
-                    <a href="about.html">How it Works</a>
-                </header>
-            </body>
+        <div class="mdl-card mdl-shadow--4dp" style="background-color: #455A64; margin: auto; width: 70%; color: black;">
+            <header style="padding: 20px;">
+                <h1>Artography</h1>
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="index.html">Home</a>
+                <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="about.html">How it Works</a>
+            </header>
             <hr>
-            <p>My first paragraph. This is a really long paragraph to test how long the paragraph can be before it switches over to a new line while still remaining in the paragraph and thus still being a part of the paragraph. This is hopefully long enough now.</p>
-            <form>
-                <div class="mdl-textfield mdl-js-textfield">
-                    <input id="latin" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
+            <p style="margin: 20px;">My first paragraph. This is a really long paragraph to test how long the paragraph can be before it switches over to a new line while still remaining in the paragraph and thus still being a part of the paragraph. This is hopefully long enough now.</p>
+            <form action="#" style="padding-left: 20px; padding-right: 20px; margin-bottom: 20px;">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="latin">
                     <label class="mdl-textfield__label" for="latin">Latitude</label>
                     <span class="mdl-textfield__error">Input is not a number!</span>
                 </div><br>
-                <div class="mdl-textfield mdl-js-textfield">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="lonin">
                     <label class="mdl-textfield__label" for="lonin">Longitude</label>
                     <span class="mdl-textfield__error">Input is not a number!</span>
                 </div><br>
-                <input type="button" id="dljson" value="Submit"><br>
+                <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" id="dljson" value="Submit"><br>
             </form>
         </div>
     </body>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="processing.js"></script>
     <script type="text/javascript" src="index.js"></script>

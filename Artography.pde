@@ -229,6 +229,11 @@ class Location {
     noStroke();
 	fill(r, g, b);
     rect(locX, locY, sizeX, sizeY);
+    stroke(0,0,0);
+	line(locX,locY+sizeY, locX+sizeX/2,locY+sizeY/2);
+	line(locX+sizeX/2,locY+sizeY/2, locX+sizeX, locY+sizeY);
+	line(locX, locY+sizeY/2, locX+sizeX/2, locY);
+	line(locX+sizeX/2, locY, locX+sizeX, locY+sizeY/2);
 	if(isInside(mouseX, mouseY)) {
 		  textAlign(CENTER, CENTER);
 		  text(name, locX+sizeX/2, locY+sizeY+10);

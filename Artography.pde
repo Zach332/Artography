@@ -6,6 +6,7 @@ double max_lat_dif = -1000000;
 double min_lat = 1000000;
 double max_lon_dif = -1000000;
 double min_lon = 1000000;
+boolean textDisplayed = false;
 
 final int BUILDING_SIZE_CONSTANT = 13000;
 
@@ -94,6 +95,7 @@ class LocationSystem {
       Location l = locations.get(i);
       l.eraseAllUnneededText();
     }
+    textDisplayed = false;
 	for(int i = 0; i < locations.size(); i++) {
       Location l = locations.get(i);
       l.run();
@@ -234,7 +236,8 @@ class Location {
 	line(locX+sizeX/2,locY+sizeY/2, locX+sizeX, locY+sizeY);
 	line(locX, locY+sizeY/2, locX+sizeX/2, locY);
 	line(locX+sizeX/2, locY, locX+sizeX, locY+sizeY/2);
-	if(isInside(mouseX, mouseY)) {
+	if(!textDisplayed&&isInside(mouseX, mouseY)) {
+		  textDisplayed = true;
 		  textAlign(CENTER, CENTER);
 		  text(name, locX+sizeX/2, locY+sizeY+10);
 	}
